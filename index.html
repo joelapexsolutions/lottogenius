@@ -7,6 +7,152 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Generate optimized lottery combinations with Lotto Genius for 17+ international lottery games. Available on Google Play.">
+    
+    <!-- Inline JavaScript for direct execution -->
+    <script>
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+        
+        function showModal(title, message) {
+            var modal = document.getElementById('customModal');
+            modal.innerHTML = '<div class="modal-content">' +
+                '<h2>' + title + '</h2>' +
+                '<p>' + message + '</p>' +
+                '<div class="modal-buttons">' +
+                '<button onclick="closeModal()">OK</button>' +
+                '</div>' +
+                '</div>';
+            modal.classList.remove('hidden');
+        }
+        
+        function getBallColor(number) {
+            if (number <= 19) return 'red';
+            if (number <= 29) return 'yellow';
+            if (number <= 39) return 'green';
+            return 'blue';
+        }
+        
+        function generateUniqueNumbers(count, range) {
+            var numbers = [];
+            var availableNumbers = [];
+            
+            // Create array of available numbers
+            for (var i = 1; i <= range; i++) {
+                availableNumbers.push(i);
+            }
+            
+            // Randomly select numbers
+            while (numbers.length < count) {
+                var randomIndex = Math.floor(Math.random() * availableNumbers.length);
+                numbers.push(availableNumbers[randomIndex]);
+                availableNumbers.splice(randomIndex, 1);
+            }
+            
+            // Sort numbers
+            return numbers.sort(function(a, b) { return a - b; });
+        }
+        
+        function togglePowerballOptions() {
+            var powerballGroup = document.getElementById('powerballGroup');
+            var powerballToggle = document.getElementById('powerballToggle');
+            
+            if (powerballToggle.checked) {
+                powerballGroup.classList.remove('hidden');
+            } else {
+                powerballGroup.classList.add('hidden');
+            }
+        }
+        
+        function generateNumbers() {
+            try {
+                // Get input values
+                var lottoCountInput = document.getElementById('lottoCount');
+                var lottoRangeInput = document.getElementById('lottoRange');
+                var powerballToggle = document.getElementById('powerballToggle');
+                var powerballRangeInput = document.getElementById('powerballRange');
+                var resultsContainer = document.getElementById('generatorResults');
+                
+                // Get values with fallbacks
+                var count = parseInt(lottoCountInput.value) || 6;
+                var range = parseInt(lottoRangeInput.value) || 49;
+                var includePowerball = powerballToggle && powerballToggle.checked;
+                var powerballRange = powerballRangeInput ? (parseInt(powerballRangeInput.value) || 20) : 20;
+                
+                // Validate input
+                if (count > range) {
+                    showModal('Error', "Numbers to pick can't be greater than the range!");
+                    return;
+                }
+                
+                if (count < 1 || range < count || range > 99) {
+                    showModal('Error', "Please check your input values!");
+                    return;
+                }
+                
+                // Generate main numbers
+                var numbers = generateUniqueNumbers(count, range);
+                
+                // Generate powerball if needed
+                var powerball = null;
+                if (includePowerball) {
+                    powerball = Math.floor(Math.random() * powerballRange) + 1;
+                }
+                
+                // Clear previous results
+                resultsContainer.innerHTML = '';
+                
+                // Create result row
+                var resultRow = document.createElement('div');
+                resultRow.className = 'result-row';
+                
+                // Create main balls
+                var resultBalls = document.createElement('div');
+                resultBalls.className = 'result-balls';
+                
+                for (var i = 0; i < numbers.length; i++) {
+                    var number = numbers[i];
+                    var ball = document.createElement('div');
+                    ball.className = 'result-ball ' + getBallColor(number);
+                    ball.textContent = number;
+                    resultBalls.appendChild(ball);
+                }
+                
+                resultRow.appendChild(resultBalls);
+                
+                // Add powerball if included
+                if (powerball !== null) {
+                    var divider = document.createElement('div');
+                    divider.className = 'powerball-divider';
+                    divider.textContent = '|';
+                    resultRow.appendChild(divider);
+                    
+                    var powerballElement = document.createElement('div');
+                    powerballElement.className = 'result-ball yellow';
+                    powerballElement.textContent = powerball;
+                    
+                    var powerballContainer = document.createElement('div');
+                    powerballContainer.className = 'result-balls';
+                    powerballContainer.appendChild(powerballElement);
+                    
+                    resultRow.appendChild(powerballContainer);
+                }
+                
+                resultsContainer.appendChild(resultRow);
+                
+                // Add a prompt
+                var prompt = document.createElement('p');
+                prompt.style.textAlign = 'center';
+                prompt.style.marginTop = '20px';
+                prompt.innerHTML = 'Download the app for more features,<br>including saving favorites and more lottery types!';
+                
+                resultsContainer.appendChild(prompt);
+                
+            } catch (error) {
+                alert("Error generating numbers: " + error.message);
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="customModal" class="modal hidden">
@@ -117,14 +263,14 @@
                     <input type="number" id="lottoRange" min="10" max="99" value="49">
                 </div>
                 <div class="form-group checkbox">
-                    <input type="checkbox" id="powerballToggle">
+                    <input type="checkbox" id="powerballToggle" onchange="togglePowerballOptions()">
                     <label for="powerballToggle">Include Powerball</label>
                 </div>
                 <div class="form-group powerball-group hidden" id="powerballGroup">
                     <label for="powerballRange">Powerball Range 1-</label>
                     <input type="number" id="powerballRange" min="1" max="99" value="20">
                 </div>
-                <button id="generateBtn" class="generate-btn">Generate Numbers</button>
+                <button onclick="generateNumbers()" class="generate-btn">Generate Numbers</button>
             </div>
             <div class="generator-results" id="generatorResults">
                 <div class="placeholder-text">Your numbers will appear here</div>
@@ -185,7 +331,5 @@
             &copy; 2025 Lotto Genius. All rights reserved.
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
