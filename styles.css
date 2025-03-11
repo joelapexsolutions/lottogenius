@@ -78,7 +78,7 @@ a:hover {
 header {
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--light-text);
-    padding: 20px;
+    padding: 10px 20px;
     box-shadow: 0 0 15px gold;
     position: fixed;
     top: 0;
@@ -93,20 +93,12 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
 }
 
 .logo-image {
-    height: 60px;
+    height: 80px; /* Increased logo size */
     width: auto;
-}
-
-.logo h1 {
-    font-size: 2rem;
-    margin-bottom: 0;
-    background: linear-gradient(45deg, gold, orange);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .logo .tagline {
@@ -142,7 +134,7 @@ nav a:hover {
 }
 
 .hero-content {
-    flex: 1;
+    flex: 3;
     min-width: 300px;
     padding: 20px;
     text-align: left;
@@ -167,11 +159,12 @@ nav a:hover {
 }
 
 .hero-image {
-    flex: 1;
+    flex: 2; /* Reduced from flex:1 to make the image smaller */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 300px;
+    min-width: 250px;
+    max-width: 350px; /* Added max-width to limit image size */
 }
 
 .feature-image {
@@ -492,11 +485,19 @@ footer {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
 }
 
-.footer-logo h3 {
-    color: gold;
-    font-size: 1.5rem;
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo-image {
+    height: 60px;
+    width: auto;
+    margin-bottom: 10px;
 }
 
 .footer-logo p {
