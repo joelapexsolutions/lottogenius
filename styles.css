@@ -96,9 +96,9 @@ header {
     justify-content: center;
 }
 
-/* For the logo in header */
+/* For the logo in header - UPDATED */
 .logo-image {
-    height: 40px;
+    height: 35px;
     width: auto;
     margin-right: 15px;
 }
@@ -133,7 +133,7 @@ nav a:hover {
     color: gold;
 }
 
-/* Hero Section */
+/* Hero Section - UPDATED */
 .hero {
     display: flex;
     align-items: center;
@@ -150,11 +150,11 @@ nav a:hover {
     text-align: left;
 }
 
-/* Add this somewhere in the Hero Section around line 150 */
+/* Feature image - UPDATED */
 .feature-image {
     max-width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 150px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
@@ -177,20 +177,21 @@ nav a:hover {
     height: 60px;
 }
 
+/* Hero image container - UPDATED */
 .hero-image {
-    flex: 2;
-    max-width: 300px;
+    flex: 1;
+    max-width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 250px;
+    min-width: 200px;
 }
 
-/* Large logo in hero section */
+/* Large logo in hero section - UPDATED */
 .feature-logo {
     max-width: 100%;
     height: auto;
-    max-height: 350px; /* Make the logo much bigger */
+    max-height: 150px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
