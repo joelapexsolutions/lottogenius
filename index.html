@@ -3,106 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Genius - Lottery Number Generator</title>
+    <title>Lotto Genius - Smart Numbers, Better Odds</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Generate optimized lottery combinations with Lotto Genius for 17+ international lottery games. Available on Google Play.">
 </head>
 <body>
+    <div id="customModal" class="modal hidden">
+        <!-- Modal content will be added dynamically -->
+    </div>
+
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Lotto Genius</h1>
-                <span class="tagline">Smart Numbers, Better Odds</span>
-            </div>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="#demo">Try It</a>
-                <a href="#about">About</a>
-            </nav>
+        <div class="logo">
+            <img src="logo.png" alt="Lotto Genius Logo" class="logo-image">
+            <h1>Lotto Genius</h1>
+            <span class="tagline">Smart Numbers, Better Odds</span>
         </div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#demo">Try It</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="#about">About</a>
+        </nav>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Generate Winning Lottery Combinations</h2>
-                <p>Lotto Genius helps you create optimized number combinations for 17+ lottery games worldwide using advanced algorithms.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.lottogenius.app" class="download-btn" target="_blank">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
-                </a>
-            </div>
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="app-screenshot">
-                        <div class="lottery-balls">
-                            <div class="ball red">7</div>
-                            <div class="ball yellow">23</div>
-                            <div class="ball green">36</div>
-                            <div class="ball blue">42</div>
-                            <div class="ball red">11</div>
-                            <div class="ball yellow">29</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-content">
+            <h2>Generate Winning Lottery Combinations</h2>
+            <p>Lotto Genius helps you create optimized number combinations for 17+ lottery games worldwide including Powerball, Mega Millions, EuroJackpot, and more.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.lottogenius.app" class="download-btn" target="_blank">
+                <img src="google-play-badge.png" alt="Get it on Google Play">
+            </a>
+        </div>
+        <div class="hero-image">
+            <img src="hero-image.png" alt="Lottery balls and money" class="feature-image">
         </div>
     </section>
 
     <section id="features" class="features">
-        <div class="container">
-            <h2>Premium Features</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🌎</div>
-                    <h3>Global Lotteries</h3>
-                    <p>Support for 17+ international lottery formats including Powerball, Mega Millions, EuroMillions, and more.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Save Favorites</h3>
-                    <p>Store your lucky combinations and access them anytime with premium upgrade.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📱</div>
-                    <h3>Ad-Free Experience</h3>
-                    <p>Enjoy a clean, distraction-free interface with our one-time premium upgrade.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📊</div>
-                    <h3>History Tracking</h3>
-                    <p>Keep track of your generated numbers and review past combinations.</p>
-                </div>
+        <h2>Premium Features</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🌎</div>
+                <h3>Global Lotteries</h3>
+                <p>Support for 17+ international lottery formats including Powerball, Mega Millions, EuroMillions, and more.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⭐</div>
+                <h3>Save Favorites</h3>
+                <p>Store your lucky combinations and access them anytime with premium upgrade.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Ad-Free Experience</h3>
+                <p>Enjoy a clean, distraction-free interface with our one-time premium upgrade.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <h3>History Tracking</h3>
+                <p>Keep track of your generated numbers and review past combinations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="screenshots">
+        <h2>App Screenshots</h2>
+        <div class="screenshot-carousel">
+            <div class="screenshot">
+                <img src="screenshot1.png" alt="Lotto Genius Generator Screen">
+                <p>Generate custom numbers for any lottery</p>
+            </div>
+            <div class="screenshot">
+                <img src="screenshot2.png" alt="Lotto Genius Number Selection">
+                <p>Select your favorite numbers</p>
+            </div>
+            <div class="screenshot">
+                <img src="screenshot3.png" alt="Lotto Genius Favorites Screen">
+                <p>Save your favorite combinations</p>
+            </div>
+            <div class="screenshot">
+                <img src="screenshot4.png" alt="Lotto Genius History Screen">
+                <p>Track your generation history</p>
             </div>
         </div>
     </section>
 
     <section id="demo" class="demo">
-        <div class="container">
-            <h2>Try Our Number Generator</h2>
-            <div class="generator-container">
-                <div class="generator-controls">
-                    <div class="form-group">
-                        <label for="lottoCount">Numbers to Pick:</label>
-                        <input type="number" id="lottoCount" min="1" max="10" value="6">
-                    </div>
-                    <div class="form-group">
-                        <label for="lottoRange">From Range 1-</label>
-                        <input type="number" id="lottoRange" min="10" max="99" value="49">
-                    </div>
-                    <div class="form-group checkbox">
-                        <input type="checkbox" id="powerballToggle">
-                        <label for="powerballToggle">Include Powerball</label>
-                    </div>
-                    <div class="form-group powerball-group hidden" id="powerballGroup">
-                        <label for="powerballRange">Powerball Range 1-</label>
-                        <input type="number" id="powerballRange" min="1" max="99" value="20">
-                    </div>
-                    <button id="generateBtn" class="generate-btn">Generate Numbers</button>
+        <h2>Try Our Number Generator</h2>
+        <div class="generator-container">
+            <div class="generator-controls">
+                <div class="form-group">
+                    <label for="lottoCount">Numbers to Pick:</label>
+                    <input type="number" id="lottoCount" min="1" max="10" value="6">
                 </div>
-                <div class="generator-results" id="generatorResults">
-                    <div class="placeholder-text">Your numbers will appear here</div>
+                <div class="form-group">
+                    <label for="lottoRange">From Range 1-</label>
+                    <input type="number" id="lottoRange" min="10" max="99" value="49">
                 </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="powerballToggle">
+                    <label for="powerballToggle">Include Powerball</label>
+                </div>
+                <div class="form-group powerball-group hidden" id="powerballGroup">
+                    <label for="powerballRange">Powerball Range 1-</label>
+                    <input type="number" id="powerballRange" min="1" max="99" value="20">
+                </div>
+                <button id="generateBtn" class="generate-btn">Generate Numbers</button>
+            </div>
+            <div class="generator-results" id="generatorResults">
+                <div class="placeholder-text">Your numbers will appear here</div>
             </div>
             <div class="get-app-prompt">
                 <p>Want more features? Get the full app:</p>
@@ -114,34 +123,49 @@
     </section>
 
     <section id="about" class="about">
-        <div class="container">
-            <h2>About Lotto Genius</h2>
-            <p>Lotto Genius is a powerful lottery number generator designed to help you create optimized number combinations for various lottery games worldwide. Our app uses advanced algorithms to generate unique number sets based on your preferences.</p>
+        <h2>About Lotto Genius</h2>
+        <div class="about-content">
+            <p class="welcome-text">Welcome to Lotto Genius</p>
             
-            <p>With support for over 17 international lottery formats, Lotto Genius is the perfect companion for any lottery enthusiast. Select from popular games like US Powerball, Mega Millions, EuroJackpot, and many more - each pre-configured with the correct format and rules.</p>
+            <div class="about-section">
+                <h3>App Features</h3>
+                <ul>
+                    <li><strong>17+ International Lottery Formats</strong> - Pre-configured with the correct format and rules for popular games like US Powerball, Mega Millions, EuroJackpot, and many more.</li>
+                    <li><strong>Color-Coded Numbers</strong> - Visual number selection with color-coding to help you spot patterns and make selections.</li>
+                    <li><strong>Cost Calculation</strong> - See exactly how much your number selections will cost to play.</li>
+                    <li><strong>Save Favorites</strong> - Store your lucky combinations and access them with a single tap.</li>
+                    <li><strong>History Tracking</strong> - Keep track of all your previously generated combinations.</li>
+                </ul>
+            </div>
             
-            <p>The premium version offers an ad-free experience, unlimited favorites storage, and complete history tracking - all for a one-time payment with no recurring fees.</p>
+            <div class="about-section">
+                <h3>Premium Benefits</h3>
+                <ul>
+                    <li><strong>Ad-Free Experience</strong> - Enjoy the app without advertisements.</li>
+                    <li><strong>Unlimited Favorites</strong> - Save as many favorite combinations as you want.</li>
+                    <li><strong>Complete History</strong> - Access your full drawing history anytime.</li>
+                    <li><strong>One-Time Payment</strong> - No recurring fees or subscriptions.</li>
+                </ul>
+            </div>
             
-            <p class="disclaimer">Disclaimer: This app is a number generator tool only and is not affiliated with any lottery organization. To participate in actual lottery draws, numbers must be played through your official local lottery operator or authorized retailer.</p>
+            <p class="disclaimer">Disclaimer: This app is a number generator tool only and is not affiliated with any lottery organization. To participate in actual lottery draws, these numbers must be played through your official local lottery operator or authorized retailer.</p>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Lotto Genius</h3>
-                    <p>Smart Numbers, Better Odds</p>
-                </div>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.lottogenius.app" target="_blank">Download App</a>
-                    <a href="#features">Features</a>
-                </div>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Lotto Genius</h3>
+                <p>Smart Numbers, Better Odds</p>
             </div>
-            <div class="copyright">
-                &copy; 2025 Lotto Genius. All rights reserved.
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="https://play.google.com/store/apps/details?id=com.lottogenius.app" target="_blank">Download App</a>
+                <a href="#features">Features</a>
             </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Lotto Genius. All rights reserved.
         </div>
     </footer>
 
