@@ -713,24 +713,26 @@ footer {
     }
 }
 
-/* Forceful reset of hero image container */
+/* Make logo wider */
+.feature-image {
+    max-width: 100% !important;
+    width: 350px !important; /* Set explicit width */
+    height: auto !important; /* Maintain aspect ratio */
+    max-height: 300px !important; 
+    min-height: 200px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+    object-fit: contain !important; /* Ensure image fits within dimensions */
+}
+
+/* Adjust container to fit wider logo */
 .hero-image {
     flex: 2 !important;
-    max-width: 320px !important; 
-    min-width: 280px !important;
+    max-width: 380px !important; /* Increased from 320px */
+    min-width: 350px !important; /* Increased from 280px */
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     height: auto !important;
-}
-
-/* Force the logo to be much larger */
-.feature-image {
-    max-width: 100% !important;
-    width: auto !important;
-    height: auto !important;
-    max-height: 300px !important; /* Much larger logo */
-    min-height: 200px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+    padding: 10px !important;
 }
