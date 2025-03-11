@@ -1,52 +1,59 @@
+// Define our closeModal function immediately as a global function
+// This ensures it's available for the onclick handler
+window.closeModal = function() {
+    var modal = document.getElementById('customModal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+};
+
+// Main initialization function when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded - fixed script");
+    console.log("DOM loaded - initializing lotto generator");
     
-    // Elements
-    const generateBtn = document.getElementById('generateBtn');
-    const lottoCountInput = document.getElementById('lottoCount');
-    const lottoRangeInput = document.getElementById('lottoRange');
-    const powerballToggle = document.getElementById('powerballToggle');
-    const powerballGroup = document.getElementById('powerballGroup');
-    const powerballRangeInput = document.getElementById('powerballRange');
-    const generatorResults = document.getElementById('generatorResults');
+    // Get all required DOM elements
+    var generateButton = document.getElementById('generateBtn');
+    var lottoCountInput = document.getElementById('lottoCount');
+    var lottoRangeInput = document.getElementById('lottoRange');
+    var powerballToggle = document.getElementById('powerballToggle');
+    var powerballGroup = document.getElementById('powerballGroup');
+    var powerballRangeInput = document.getElementById('powerballRange');
+    var resultsContainer = document.getElementById('generatorResults');
     
-    console.log("Generate button found:", !!generateBtn);
+    // Log element status for debugging
+    console.log("Found generate button:", !!generateButton);
+    console.log("Found lotto count input:", !!lottoCountInput);
+    console.log("Found results container:", !!resultsContainer);
     
-    // Event Listeners - with proper checks to avoid null reference errors
-    if (generateBtn) {
-        generateBtn.addEventListener('click', generateNumbers);
-        console.log("Added click event listener to generate button");
-    } else {
-        console.error("Generate button not found in the DOM");
+    // Attach event listeners if elements exist
+    if (generateButton) {
+        generateButton.onclick = function() {
+            handleGenerateClick();
+        };
+        console.log("Attached click handler to generate button");
     }
     
     if (powerballToggle) {
-        powerballToggle.addEventListener('change', togglePowerballOptions);
+        powerballToggle.onchange = function() {
+            togglePowerballOptions();
+        };
     }
     
-    // Functions
-    function togglePowerballOptions() {
-        if (powerballGroup) {
-            if (powerballToggle.checked) {
-                powerballGroup.classList.remove('hidden');
-            } else {
-                powerballGroup.classList.add('hidden');
-            }
-        }
-    }
-    
-    function generateNumbers() {
-        console.log("generateNumbers function called");
+    // Handle generate button click
+    function handleGenerateClick() {
+        console.log("Generate button clicked");
         
-        if (!lottoCountInput || !lottoRangeInput || !generatorResults) {
-            console.error("Required DOM elements not found");
+        // Check if required elements exist
+        if (!lottoCountInput || !lottoRangeInput || !resultsContainer) {
+            alert("Some required elements are missing. Please refresh the page and try again.");
             return;
         }
         
-        const count = parseInt(lottoCountInput.value) || 6;
-        const range = parseInt(lottoRangeInput.value) || 49;
-        const includePowerball = powerballToggle && powerballToggle.checked;
-        const powerballRange = powerballRangeInput ? (parseInt(powerballRangeInput.value) || 20) : 20;
+        // Get input values
+        var count = parseInt(lottoCountInput.value) || 6;
+        var range = parseInt(lottoRangeInput.value) || 49;
+        var includePowerball = powerballToggle && powerballToggle.checked;
+        var powerballRange = powerballRangeInput ? (parseInt(powerballRangeInput.value) || 20) : 20;
         
         console.log("Generating with:", {count, range, includePowerball, powerballRange});
         
@@ -62,82 +69,98 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Generate main numbers
-        let numbers = generateUniqueNumbers(count, range);
+        var numbers = generateUniqueNumbers(count, range);
         
         // Generate powerball if needed
-        let powerball = null;
+        var powerball = null;
         if (includePowerball) {
             powerball = Math.floor(Math.random() * powerballRange) + 1;
         }
         
+        // Display the results
         displayResults(numbers, powerball);
     }
     
+    // Toggle powerball options visibility
+    function togglePowerballOptions() {
+        if (powerballGroup && powerballToggle) {
+            if (powerballToggle.checked) {
+                powerballGroup.classList.remove('hidden');
+            } else {
+                powerballGroup.classList.add('hidden');
+            }
+        }
+    }
+    
+    // Generate unique random numbers
     function generateUniqueNumbers(count, range) {
-        let numbers = [];
-        let availableNumbers = Array.from({length: range}, (_, i) => i + 1);
+        var numbers = [];
+        var availableNumbers = Array.from({length: range}, function(_, i) { return i + 1; });
         
         while (numbers.length < count) {
-            const randomIndex = Math.floor(Math.random() * availableNumbers.length);
+            var randomIndex = Math.floor(Math.random() * availableNumbers.length);
             numbers.push(availableNumbers[randomIndex]);
             availableNumbers.splice(randomIndex, 1);
         }
         
-        return numbers.sort((a, b) => a - b);
+        return numbers.sort(function(a, b) { return a - b; });
     }
     
+    // Display the generated numbers
     function displayResults(numbers, powerball) {
         console.log("Displaying results:", {numbers, powerball});
         
         // Clear previous results
-        generatorResults.innerHTML = '';
+        resultsContainer.innerHTML = '';
         
         // Create result row
-        const resultRow = document.createElement('div');
+        var resultRow = document.createElement('div');
         resultRow.className = 'result-row';
         
         // Create main balls
-        const resultBalls = document.createElement('div');
+        var resultBalls = document.createElement('div');
         resultBalls.className = 'result-balls';
         
-        numbers.forEach(number => {
-            const ball = document.createElement('div');
-            ball.className = `result-ball ${getBallColor(number)}`;
+        for (var i = 0; i < numbers.length; i++) {
+            var number = numbers[i];
+            var ball = document.createElement('div');
+            ball.className = 'result-ball ' + getBallColor(number);
             ball.textContent = number;
             resultBalls.appendChild(ball);
-        });
+        }
         
         resultRow.appendChild(resultBalls);
         
         // Add powerball if included
         if (powerball !== null) {
-            const divider = document.createElement('div');
+            var divider = document.createElement('div');
             divider.className = 'powerball-divider';
             divider.textContent = '|';
             resultRow.appendChild(divider);
             
-            const powerballElement = document.createElement('div');
+            var powerballElement = document.createElement('div');
             powerballElement.className = 'result-ball yellow';
             powerballElement.textContent = powerball;
             
-            const powerballContainer = document.createElement('div');
+            var powerballContainer = document.createElement('div');
             powerballContainer.className = 'result-balls';
             powerballContainer.appendChild(powerballElement);
             
             resultRow.appendChild(powerballContainer);
         }
         
-        generatorResults.appendChild(resultRow);
+        resultsContainer.appendChild(resultRow);
         
         // Add a prompt
-        const prompt = document.createElement('p');
+        var prompt = document.createElement('p');
         prompt.style.textAlign = 'center';
         prompt.style.marginTop = '20px';
         prompt.innerHTML = 'Download the app for more features,<br>including saving favorites and more lottery types!';
         
-        generatorResults.appendChild(prompt);
+        resultsContainer.appendChild(prompt);
     }
     
+    // Determine ball color based on number range
     function getBallColor(number) {
         if (number <= 19) return 'red';
         if (number <= 29) return 'yellow';
@@ -145,19 +168,18 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'blue';
     }
     
+    // Show a modal with a message
     function showModal(title, message) {
-        const modal = document.getElementById('customModal');
+        var modal = document.getElementById('customModal');
         
         if (modal) {
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <h2>${title}</h2>
-                    <p>${message}</p>
-                    <div class="modal-buttons">
-                        <button onclick="closeModal()">OK</button>
-                    </div>
-                </div>
-            `;
+            modal.innerHTML = '<div class="modal-content">' +
+                '<h2>' + title + '</h2>' +
+                '<p>' + message + '</p>' +
+                '<div class="modal-buttons">' +
+                '<button onclick="window.closeModal()">OK</button>' +
+                '</div>' +
+                '</div>';
             
             modal.classList.remove('hidden');
         } else {
@@ -166,11 +188,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
-// Global functions
-function closeModal() {
-    const modal = document.getElementById('customModal');
-    if (modal) {
-        modal.classList.add('hidden');
-    }
-}
