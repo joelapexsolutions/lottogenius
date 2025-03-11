@@ -98,7 +98,7 @@ header {
 
 /* For the logo in header - UPDATED */
 .logo-image {
-    height: 35px;
+    height: 38px;
     width: auto;
     margin-right: 15px;
 }
@@ -154,7 +154,7 @@ nav a:hover {
 .feature-image {
     max-width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: 180px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
@@ -179,19 +179,19 @@ nav a:hover {
 
 /* Hero image container - UPDATED */
 .hero-image {
-    flex: 1;
-    max-width: 200px;
+    flex: 1.5;
+    max-width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 200px;
+    min-width: 220px;
 }
 
 /* Large logo in hero section - UPDATED */
 .feature-logo {
     max-width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: 180px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
