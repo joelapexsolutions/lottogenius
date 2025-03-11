@@ -154,7 +154,7 @@ nav a:hover {
 .feature-image {
     max-width: 100%;
     height: auto;
-    max-height: 180px;
+    max-height: 250px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
@@ -180,7 +180,7 @@ nav a:hover {
 /* Hero image container - UPDATED */
 .hero-image {
     flex: 1.5;
-    max-width: 250px;
+    max-width: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,7 +191,7 @@ nav a:hover {
 .feature-logo {
     max-width: 100%;
     height: auto;
-    max-height: 180px;
+    max-height: 300px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
