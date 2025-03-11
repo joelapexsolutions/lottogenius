@@ -9,15 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const generatorResults = document.getElementById('generatorResults');
     
     // Event Listeners
-    generateBtn.addEventListener('click', generateNumbers);
-    powerballToggle.addEventListener('change', togglePowerballOptions);
+    if (generateBtn) {
+        generateBtn.addEventListener('click', generateNumbers);
+    }
+    
+    if (powerballToggle) {
+        powerballToggle.addEventListener('change', togglePowerballOptions);
+    }
     
     // Functions
     function togglePowerballOptions() {
-        if (powerballToggle.checked) {
-            powerballGroup.classList.remove('hidden');
-        } else {
-            powerballGroup.classList.add('hidden');
+        if (powerballGroup) {
+            if (powerballToggle.checked) {
+                powerballGroup.classList.remove('hidden');
+            } else {
+                powerballGroup.classList.add('hidden');
+            }
         }
     }
     
@@ -123,20 +130,26 @@ document.addEventListener('DOMContentLoaded', function() {
     function showModal(title, message) {
         const modal = document.getElementById('customModal');
         
-        modal.innerHTML = `
-            <div class="modal-content">
-                <h2>${title}</h2>
-                <p>${message}</p>
-                <div class="modal-buttons">
-                    <button onclick="closeModal()">OK</button>
+        if (modal) {
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>${title}</h2>
+                    <p>${message}</p>
+                    <div class="modal-buttons">
+                        <button onclick="closeModal()">OK</button>
+                    </div>
                 </div>
-            </div>
-        `;
-        
-        modal.classList.remove('hidden');
+            `;
+            
+            modal.classList.remove('hidden');
+        }
     }
-    
-    window.closeModal = function() {
-        document.getElementById('customModal').classList.add('hidden');
-    };
 });
+
+// Global functions
+function closeModal() {
+    const modal = document.getElementById('customModal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
