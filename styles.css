@@ -96,12 +96,9 @@ header {
     justify-content: center;
 }
 
-/* Small hero image in header */
-.header-image {
-    height: 60px; /* Smaller size for the header */
+.logo-image {
+    height: 80px; /* Increased logo size */
     width: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .logo .tagline {
@@ -162,18 +159,17 @@ nav a:hover {
 }
 
 .hero-image {
-    flex: 2;
+    flex: 2; /* Reduced from flex:1 to make the image smaller */
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 250px;
+    max-width: 350px; /* Added max-width to limit image size */
 }
 
-/* Large logo in hero section */
-.feature-logo {
+.feature-image {
     max-width: 100%;
     height: auto;
-    max-height: 350px; /* Make the logo much bigger */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
