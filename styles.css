@@ -96,6 +96,13 @@ header {
     justify-content: center;
 }
 
+/* For the logo in header */
+.logo-image {
+    height: 40px;
+    width: auto;
+    margin-right: 15px;
+}
+
 /* Small hero image in header */
 .header-image {
     height: 60px; /* Smaller size for the header */
@@ -143,6 +150,15 @@ nav a:hover {
     text-align: left;
 }
 
+/* Add this somewhere in the Hero Section around line 150 */
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
 .hero h2 {
     font-size: 2.5rem;
     text-align: left;
@@ -163,6 +179,7 @@ nav a:hover {
 
 .hero-image {
     flex: 2;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
