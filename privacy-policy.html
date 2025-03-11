@@ -4,59 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Lotto Genius</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base styles */
+        body {
+            font-family: 'Red Hat Display', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            color: white;
+            line-height: 1.6;
+        }
+        
+        /* Fixed header for navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 0 15px gold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image {
+            height: 60px;
+            width: auto;
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+            color: gold;
+        }
+        
+        /* Main content */
         .policy-container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 120px auto 40px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
         
         .policy-container h1 {
-            color: var(--primary-color);
-            border-bottom: 1px solid #eee;
+            color: gold;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
             padding-bottom: 15px;
             margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
         }
         
         .policy-container h2 {
-            color: var(--primary-color);
+            color: gold;
             margin-top: 30px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            padding-bottom: 8px;
         }
         
         .policy-container p {
             margin-bottom: 15px;
+            color: white;
+        }
+        
+        .policy-container ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .policy-container li {
+            margin-bottom: 10px;
+        }
+        
+        .policy-container strong {
+            color: gold;
         }
         
         .back-link {
             display: inline-block;
             margin-top: 30px;
-            color: var(--primary-color);
+            color: gold;
+            text-decoration: none;
             font-weight: 600;
+            border: 1px solid gold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
         
         .back-link:hover {
-            color: var(--secondary-color);
+            background-color: gold;
+            color: black;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            margin-top: 40px;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .policy-container {
+                margin: 100px 20px 40px;
+                padding: 20px;
+            }
+            
+            header {
+                flex-direction: column;
+                padding: 5px;
+            }
+            
+            nav {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .policy-container h1 {
+                font-size: 1.8rem;
+            }
+            
+            .policy-container h2 {
+                font-size: 1.3rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Lotto Genius</h1>
-                <span class="tagline">Smart Numbers, Better Odds</span>
-            </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#about">About</a>
-            </nav>
+        <div class="logo">
+            <img src="logo.png" alt="Lotto Genius Logo" class="logo-image">
         </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#about">About</a>
+        </nav>
     </header>
 
     <div class="policy-container">
@@ -126,21 +255,8 @@
     </div>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Lotto Genius</h3>
-                    <p>Smart Numbers, Better Odds</p>
-                </div>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.lottogenius.app" target="_blank">Download App</a>
-                    <a href="index.html#features">Features</a>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 Lotto Genius. All rights reserved.
-            </div>
+        <div class="copyright">
+            &copy; 2025 Lotto Genius. All rights reserved.
         </div>
     </footer>
 </body>
