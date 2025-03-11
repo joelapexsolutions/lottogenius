@@ -716,7 +716,7 @@ footer {
 /* Make logo wider */
 .feature-image {
     max-width: 100% !important;
-    width: 350px !important; /* Set explicit width */
+    width: 390px !important; /* Set explicit width */
     height: auto !important; /* Maintain aspect ratio */
     max-height: 300px !important; 
     min-height: 200px !important;
