@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded - fixed script");
+    
     // Elements
     const generateBtn = document.getElementById('generateBtn');
     const lottoCountInput = document.getElementById('lottoCount');
@@ -8,9 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const powerballRangeInput = document.getElementById('powerballRange');
     const generatorResults = document.getElementById('generatorResults');
     
-    // Event Listeners
+    console.log("Generate button found:", !!generateBtn);
+    
+    // Event Listeners - with proper checks to avoid null reference errors
     if (generateBtn) {
         generateBtn.addEventListener('click', generateNumbers);
+        console.log("Added click event listener to generate button");
+    } else {
+        console.error("Generate button not found in the DOM");
     }
     
     if (powerballToggle) {
@@ -29,10 +36,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function generateNumbers() {
+        console.log("generateNumbers function called");
+        
+        if (!lottoCountInput || !lottoRangeInput || !generatorResults) {
+            console.error("Required DOM elements not found");
+            return;
+        }
+        
         const count = parseInt(lottoCountInput.value) || 6;
         const range = parseInt(lottoRangeInput.value) || 49;
-        const includePowerball = powerballToggle.checked;
-        const powerballRange = parseInt(powerballRangeInput.value) || 20;
+        const includePowerball = powerballToggle && powerballToggle.checked;
+        const powerballRange = powerballRangeInput ? (parseInt(powerballRangeInput.value) || 20) : 20;
+        
+        console.log("Generating with:", {count, range, includePowerball, powerballRange});
         
         // Validate input
         if (count > range) {
@@ -71,6 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function displayResults(numbers, powerball) {
+        console.log("Displaying results:", {numbers, powerball});
+        
         // Clear previous results
         generatorResults.innerHTML = '';
         
@@ -142,6 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             modal.classList.remove('hidden');
+        } else {
+            // Fallback to alert if modal not found
+            alert(title + ": " + message);
         }
     }
 });
