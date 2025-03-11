@@ -150,13 +150,15 @@ nav a:hover {
     text-align: left;
 }
 
-/* Feature image - UPDATED */
+/* Force the logo to be much larger */
 .feature-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 250px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 300px !important; /* Much larger logo */
+    min-height: 200px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
 }
 
 .hero h2 {
@@ -177,23 +179,26 @@ nav a:hover {
     height: 60px;
 }
 
-/* Hero image container - UPDATED */
+/* Forceful reset of hero image container */
 .hero-image {
-    flex: 1.5;
-    max-width: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 220px;
+    flex: 2 !important;
+    max-width: 320px !important; 
+    min-width: 280px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
 }
 
-/* Large logo in hero section - UPDATED */
+/* Similarly for feature-logo */
 .feature-logo {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 300px !important;
+    min-height: 200px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
 }
 
 /* Features Section */
