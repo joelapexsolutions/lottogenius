@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validate input
         if (count > range) {
-            alert("Numbers to pick can't be greater than the range!");
+            showModal('Error', "Numbers to pick can't be greater than the range!");
             return;
         }
         
         if (count < 1 || range < count || range > 99) {
-            alert("Please check your input values!");
+            showModal('Error', "Please check your input values!");
             return;
         }
         
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const prompt = document.createElement('p');
         prompt.style.textAlign = 'center';
         prompt.style.marginTop = '20px';
-        prompt.innerHTML = 'Download the full app for more features,<br>including saving favorites and more lottery types!';
+        prompt.innerHTML = 'Download the app for more features,<br>including saving favorites and more lottery types!';
         
         generatorResults.appendChild(prompt);
     }
@@ -119,4 +119,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (number <= 39) return 'green';
         return 'blue';
     }
+    
+    function showModal(title, message) {
+        const modal = document.getElementById('customModal');
+        
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>${title}</h2>
+                <p>${message}</p>
+                <div class="modal-buttons">
+                    <button onclick="closeModal()">OK</button>
+                </div>
+            </div>
+        `;
+        
+        modal.classList.remove('hidden');
+    }
+    
+    window.closeModal = function() {
+        document.getElementById('customModal').classList.add('hidden');
+    };
 });
