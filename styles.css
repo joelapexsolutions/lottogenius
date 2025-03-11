@@ -155,8 +155,8 @@ nav a:hover {
     max-width: 100% !important;
     width: auto !important;
     height: auto !important;
-    max-height: 300px !important; /* Much larger logo */
-    min-height: 200px !important;
+    max-height: 340px !important; /* Much larger logo */
+    min-height: 240px !important;
     border-radius: 10px !important;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
 }
